@@ -17,7 +17,7 @@ const useUser = () => {
 
   if (context === undefined) {
     throw new Error(
-      'custom hook useUser hook must be used within a UserContext Provider'
+      'custom hook useUser must be used within a UserContext Provider'
     );
   }
 
