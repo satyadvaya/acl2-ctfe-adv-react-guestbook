@@ -62,7 +62,7 @@ export default function GuestBook() {
               setName('');
             }}
           >
-            Not {user}❓
+            Not {user}?
           </button>
         )}
       </form>

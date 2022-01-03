@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import React from 'react';
 
-it('should pass before fully populating', () => {
+it('should render guest book', () => {
   // render(<App />);
-  // const helloWorld = screen.getByText('Hello World');
-  // expect(helloWorld).toBeInTheDocument();
+  // const guestEntry = screen.getByText(/Guest Entry/i);
+  // expect(guestEntry).toBeInTheDocument();
 });

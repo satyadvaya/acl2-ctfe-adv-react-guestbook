@@ -2,9 +2,7 @@ import React from 'react';
 import GuestBook from '../../components/GuestBook/GuestBook';
 import EntryList from '../../components/EntryList/EntryList';
 
-// const Home = () => {
-// export default function Home() {
-function Home() {
+export default function Home() {
   return (
     <div>
       <GuestBook />
@@ -12,5 +10,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
