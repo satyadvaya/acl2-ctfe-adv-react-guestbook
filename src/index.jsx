@@ -1,13 +1,16 @@
 import React from 'react';
-import reactDom from 'react-dom';
+import reactDOM from 'react-dom';
 import App from './App';
+import { EntryProvider } from './context/EntryContext';
 import { UserProvider } from './context/UserContext';
 
-reactDom.render(
+reactDOM.render(
   <React.StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <EntryProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </EntryProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

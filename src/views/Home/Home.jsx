@@ -1,12 +1,16 @@
-import { EntryProvider } from '../../context/EntryContext';
+import React from 'react';
 import GuestBook from '../../components/GuestBook/GuestBook';
 import EntryList from '../../components/EntryList/EntryList';
 
-export default function Home() {
+// const Home = () => {
+// export default function Home() {
+function Home() {
   return (
-    <EntryProvider>
+    <div>
       <GuestBook />
       <EntryList />
-    </EntryProvider>
+    </div>
   );
 }
+
+export default Home;

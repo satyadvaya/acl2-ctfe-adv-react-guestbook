@@ -1,7 +1,6 @@
-import { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 const EntryContext = createContext();
-
 const EntryProvider = ({ children }) => {
   const [entries, setEntries] = useState([]);
 
