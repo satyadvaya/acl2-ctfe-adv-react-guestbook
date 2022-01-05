@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Layout component 1`] = `
+<div>
+  <div>
+    <header>
+      <p>
+        Sign in, Please!
+      </p>
+    </header>
+    <main />
+  </div>
+</div>
+`;

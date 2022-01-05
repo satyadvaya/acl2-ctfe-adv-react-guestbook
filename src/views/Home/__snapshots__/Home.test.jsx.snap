@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Home component 1`] = `
+<div>
+  <div>
+    <h1>
+      Please Sign the Guestbook!
+    </h1>
+    <form>
+      <div>
+        <label
+          for="guestName"
+        >
+          Guest Name
+        </label>
+        <input
+          id="guestName"
+          placeholder="Guest Name..."
+          type="text"
+          value=""
+        />
+      </div>
+      <label
+        for="guestEntry"
+      >
+        Guest Entry
+      </label>
+      <textarea
+        id="guestEntry"
+        placeholder="Your Entry!"
+      />
+      <button
+        type="submit"
+      >
+        Sign 🖊️
+      </button>
+      
+    </form>
+    <ul />
+  </div>
+</div>
+`;
