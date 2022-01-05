@@ -1,3 +1,11 @@
+import React from 'react';
+import Home from './views/Home/Home';
+import Layout from './views/Layout/Layout';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  );
 }
