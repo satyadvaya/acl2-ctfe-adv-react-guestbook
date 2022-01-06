@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
 
 export default function GuestBook() {
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
   const [guestEntry, setGuestEntry] = useState('');
   const { entries, setEntries } = useEntries();
   const { user, setUser } = useUser();
+  const history = useHistory();
 
   function updateGuestName() {
     if (!guestEntry) {
       alert('Please write an entry!');
     } else {
-      setUser(name);
-      setEntries([...entries, { name, message: guestEntry }]);
+      // setUser(name);
+      setEntries([...entries, { name: user, message: guestEntry }]);
       setGuestEntry('');
     }
   }
@@ -23,18 +25,18 @@ export default function GuestBook() {
     updateGuestName();
   };
 
-  const guestNameInput = (
-    <div>
-      <label htmlFor="guestName">Guest Name</label>
-      <input
-        id="guestName"
-        type="text"
-        placeholder="Guest Name..."
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
-    </div>
-  );
+  // const guestNameInput = (
+  //   <div>
+  //     <label htmlFor="guestName">Guest Name</label>
+  //     <input
+  //       id="guestName"
+  //       type="text"
+  //       placeholder="Guest Name..."
+  //       value={name}
+  //       onChange={(event) => setName(event.target.value)}
+  //     />
+  //   </div>
+  // );
 
   const displayMessage = user
     ? `Thanks for Signing, ${user}!`
@@ -44,7 +46,7 @@ export default function GuestBook() {
     <>
       <h1>{displayMessage}</h1>
       <form onSubmit={handleSubmit}>
-        {user ? null : guestNameInput}
+        {/* {user ? null : guestNameInput} */}
         <label htmlFor="guestEntry">Guest Entry</label>
         <textarea
           id="guestEntry"
@@ -59,7 +61,8 @@ export default function GuestBook() {
             type="button"
             onClick={() => {
               setUser('');
-              setName('');
+              // setName('');
+              history.push('/login');
             }}
           >
             Not {user}?

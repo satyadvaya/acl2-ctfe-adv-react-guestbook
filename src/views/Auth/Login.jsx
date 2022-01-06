@@ -1,29 +1,7 @@
-// import React from 'react';
-// import { useLocation } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
-// import { useUser } from '../../context/UserContext';
-
-// export default function Login() {
-//   const { user, setUser } = useUser();
-//   const location = useLocation();
-//   const { from } = location.state || { from: { pathname: '/' } };
-
-//   return (
-//     <div>
-//       <h2>Login Page</h2>
-//       <p>Path to redirect to after logging in: {from.pathname}</p>
-//       <p>Current User: {user}</p>
-//       <button onClick={() => setUser('MrMagoo')}>Log in as MrMagoo</button>
-//       <br />
-//       <br />
-//       <Link to="/">View Guestbook</Link>
-//     </div>
-//   );
-// }
-
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { useUser } from '../../context/UserContext';
 
 export default function Login() {
   const history = useHistory();
@@ -33,12 +11,14 @@ export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  // const { setUser } = useUser();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const loginMatch = auth.login(username, password);
 
     if (loginMatch) {
+      // setUser(formState.username);
       history.replace(from.pathname);
     } else {
       setError('Invalid username/password');
@@ -58,6 +38,7 @@ export default function Login() {
           onChange={({ target }) => setUsername(target.value)}
           required
         />
+        <br />
         <label htmlFor="password">Password</label>
         <input
           id="password"
@@ -67,6 +48,7 @@ export default function Login() {
           onChange={({ target }) => setPassword(target.value)}
           required
         />
+        <br />
         <button type="submit" aria-label="Sign In">
           Sign In
         </button>
