@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth, useForm } from '../../context/AuthContext';
 import { useUser } from '../../context/UserContext';
 
 export default function Login() {
@@ -8,17 +8,22 @@ export default function Login() {
   const location = useLocation();
   const auth = useAuth();
   const { from } = location.state || { from: { pathname: '/' } };
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  // const { setUser } = useUser();
+  const { setUser } = useUser();
+  const { formState, handleFormChange } = useForm({
+    username: '',
+    password: '',
+  });
+  const { username, password } = formState;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const loginMatch = auth.login(username, password);
 
     if (loginMatch) {
-      // setUser(formState.username);
+      setUser(formState.username);
       history.replace(from.pathname);
     } else {
       setError('Invalid username/password');
@@ -35,7 +40,7 @@ export default function Login() {
           type="text"
           name="username"
           value={username}
-          onChange={({ target }) => setUsername(target.value)}
+          onChange={handleFormChange}
           required
         />
         <br />
@@ -45,7 +50,7 @@ export default function Login() {
           type="password"
           name="password"
           value={password}
-          onChange={({ target }) => setPassword(target.value)}
+          onChange={handleFormChange}
           required
         />
         <br />

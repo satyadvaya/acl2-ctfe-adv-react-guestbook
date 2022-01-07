@@ -35,4 +35,16 @@ const useAuth = () => {
   return context;
 };
 
-export { AuthProvider, useAuth };
+const useForm = (inputs = {}) => {
+  const [formState, setFormState] = useState(inputs);
+
+  const handleFormChange = (event) => {
+    const { name, value } = event.target;
+    setFormState((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  };
+  return { formState, handleFormChange };
+};
+
+export { AuthProvider, useAuth, useForm };
